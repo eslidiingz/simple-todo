@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #f1f1f1;
+}
+
+.status-bar {
+  @apply flex justify-between mt-4
+}
+
+.status {
+  @apply space-x-2 text-gray-500 text-sm
+}
+
+.btn-clear-completed {
+  @apply text-gray-500 text-sm border rounded px-2 py-1 hover:bg-gray-100 active:bg-gray-200
+}
+
+.status-item {
+  @apply cursor-pointer border border-transparent hover:border-gray-200 rounded p-1
+}
+
+.active {
+  @apply border hover:border-transparent bg-gray-100 rounded px-2 py-1 cursor-default
+}
+
+.btn-delete-todo {
+  @apply transition-all hover:rotate-90 hover:text-red-400
+}
+
+.button {
+  @apply text-gray-500 border rounded px-2 hover:bg-gray-100 active:bg-gray-200;
+}
