@@ -4,6 +4,7 @@ import NoTodo from "../components/NoTodo";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { TodosContext } from "../context/TodosContext";
 import TodoGreeting from "../components/TodoGreeting";
+import Head from "next/head";
 
 export default function TodoApp() {
   const [name, setName] = useLocalStorage("name", "");
@@ -12,6 +13,9 @@ export default function TodoApp() {
 
   return (
     <>
+      <Head>
+        <title>Simple Todo App</title>
+      </Head>
       <TodosContext.Provider
         value={{
           name,
