@@ -1,11 +1,6 @@
 import "../styles/globals.css";
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from "react-query";
+import "../styles/github-markdown.css";
+import { useQuery, useMutation, useQueryClient, QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 
 const queryClient = new QueryClient();

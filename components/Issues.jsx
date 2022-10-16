@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 import IconClosed from "./Icon/IconClosed";
 import IconComment from "./Icon/IconComment";
+import IconLoading from "./Icon/IconLoading";
 import IconOpen from "./Icon/IconOpen";
 
 const Issues = () => {
@@ -34,10 +35,11 @@ const Issues = () => {
   return (
     <div className="container max-w-screen-lg mx-auto mt-8">
       <div className="border border-gray-400 rounded-lg overflow-hidden">
-        <div className="px-4 bg-gray-200 p-4">
-          <Link href={``}>
-            <a className="text-2xl mb-2 inline-block text-blue-700">facebook / create-react-app</a>
-          </Link>
+        <div className="bg-gray-200 p-4">
+          <a href="https://github.com/facebook/create-react-app" className="text-2xl mb-2 inline-block text-blue-700">
+            facebook / create-react-app
+          </a>
+
           <div className="flex space-x-4">
             <button className="flex" onClick={() => setFilter("open")}>
               <IconOpen />{" "}
@@ -56,21 +58,7 @@ const Issues = () => {
 
         {isLoading && (
           <div className="text-center p-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6 inline-block animate-spin mr-2"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
-              />
-            </svg>
-            Loading...
+            <IconLoading /> Loading...
           </div>
         )}
 
@@ -86,7 +74,7 @@ const Issues = () => {
                   {issue?.state === "closed" && <IconClosed />}
                 </div>
                 <div>
-                  <Link href={`/issues/1`} className="font-semibold">
+                  <Link href={`/issues/${issue?.number}`} className="font-semibold">
                     <a className="font-semibold hover:text-blue-700">{issue?.title}</a>
                   </Link>
                   <div className="text-gray-500">
@@ -100,7 +88,7 @@ const Issues = () => {
               </div>
 
               {issue?.comments > 0 && (
-                <Link href={`/issues/1`}>
+                <Link href={`/issues/${issue?.number}`}>
                   <a className="flex items-center">
                     <IconComment /> <div className="ml-1">{issue?.comments}</div>
                   </a>
